@@ -8,7 +8,7 @@ import { BASE_URL } from '../reusables/urls'
 
 const Tasks = () => {
   const [newTask, setNewTask] = useState('')
-  const taskItems = useSelector((store) => store.tasks.taskItem)
+  const taskItem = useSelector((store) => store.tasks.taskItem)
 
   const dispatch = useDispatch()
 
@@ -43,7 +43,7 @@ const Tasks = () => {
   return (
     <div>
       <h1>List</h1>
-      {taskItems.map((task) => (
+      {taskItem.map((task) => (
         <div key={task._id}>
           <div>{task.taskItem}</div>
         </div>
