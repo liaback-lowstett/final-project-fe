@@ -23,7 +23,8 @@ const TaskList = () => {
 
   return (
     <>
-      {taskItemList.map(item => (
+      {taskItemList.map((item) => (
+        // eslint-disable-next-line no-underscore-dangle
         <div key={item._id}>
           <p>{item.taskItem}</p>
         </div>
@@ -33,4 +34,3 @@ const TaskList = () => {
 };
 
 export default TaskList;
-
