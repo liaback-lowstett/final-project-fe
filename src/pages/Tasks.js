@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
-import BASE_URL from '../reusables/urls'
+import TaskList from '../components/TaskList'
 
-const Tasks = () =>{
-    return(
-        <div>
-            Tasks
-        </div>
-    )
+const Tasks = () => {
+  return (
+    <TaskList />
+  )
 }
-
 export default Tasks
