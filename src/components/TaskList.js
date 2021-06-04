@@ -1,12 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/macro'
-import { useSelector, useDispatch, batch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 
 import tasks from '../reducers/tasks'
-import { API_URL } from '../reusables/urls'
+import { BASE_URL } from '../reusables/urls'
 
 const TaskList = () => {
-  return <div>taks list</div>;
+  const taskItemList = useSelector((store) => store.tasks.taskItem)
+
+  const dispatch = useDispatch()
+
+  const fetchTasksList = useCallback(() => {
+    fetch(BASE_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(tasks.actions.setTasks(data.allTasks))
+      })
+  }, [dispatch])
+
+  useEffect(() => {
+    fetchTasksList()
+  }, [fetchTasksList])
+
+  return (
+    <>
+      {taskItemList.map(item => (
+        <div key={item._id}>
+          <p>{item.taskItem}</p>
+        </div>
+      ))}
+    </>
+  )
 };
+
 export default TaskList;
+
