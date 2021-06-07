@@ -1,10 +1,14 @@
 import React from 'react';
 
 import TaskList from '../components/TaskList'
+import TaskInput from '../components/TaskInput'
 
 const Tasks = () => {
   return (
-    <TaskList />
+    <>
+      <TaskInput />
+      <TaskList />
+    </>
   )
 }
 export default Tasks
