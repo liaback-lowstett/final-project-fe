@@ -4,12 +4,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import tasks from 'reducers/tasks';
+import user from 'reducers/user';
 
 import Home from './pages/Home';
 import Tasks from './pages/Tasks';
 
 const reducer = combineReducers({
-  tasks: tasks.reducer
+  tasks: tasks.reducer,
+  user: user.reducer
 });
 
 const store = configureStore({ reducer });

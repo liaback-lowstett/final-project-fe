@@ -1,0 +1,11 @@
+.list-container {
+    display: flex;
+}
+
+.taks-container {
+    font-size: 17px;
+}
+
+.task-text {
+    font-size: 17px;
+}

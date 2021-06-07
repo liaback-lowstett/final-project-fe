@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import tasks from '../reducers/tasks'
-import { BASE_URL } from '../reusables/urls'
+import tasks from '../../reducers/tasks'
+import { BASE_URL } from '../../reusables/urls'
+
+import './TaskList.css'
 
 const TaskList = () => {
   const taskItemList = useSelector((store) => store.tasks.taskItem)
@@ -25,8 +27,10 @@ const TaskList = () => {
     <>
       {taskItemList.map((item) => (
         // eslint-disable-next-line no-underscore-dangle
-        <div key={item._id}>
-          <p>{item.taskItem}</p>
+        <div className="list-container">
+          <div className="task-container" key={item._id}>
+            <p className="task-text">{item.taskItem}</p>
+          </div>
         </div>
       ))}
     </>

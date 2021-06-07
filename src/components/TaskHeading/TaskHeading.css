@@ -1,0 +1,26 @@
+.heading {
+    margin: 50px 0 5px 0;
+    font-size: 27px;
+}
+
+.input-filed {
+    border: none;
+    outline: none;
+    font-size: 27px;
+    color: black;
+}
+
+::placeholder  {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:lightgray;
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color:lightgray;
+  }
+  
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color:lightgray;
+  }
