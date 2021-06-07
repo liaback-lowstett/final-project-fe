@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -26,11 +27,8 @@ const TaskList = () => {
   return (
     <>
       {taskItemList.map((item) => (
-        // eslint-disable-next-line no-underscore-dangle
-        <div className="list-container">
-          <div className="task-container" key={item._id}>
-            <p className="task-text">{item.taskItem}</p>
-          </div>
+        <div className="task-container" key={item._id}>
+          <p className="task-text">{item.taskItem}</p>
         </div>
       ))}
     </>
