@@ -1,19 +1,19 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch, batch } from 'react-redux'
+import { useSelector, useDispatch, batch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
-import user from '../reducers/user'
-import { API_URL } from '../reusables/urls'
+import user from '../reducers/user';
+import { API_URL } from '../reusables/urls';
 
 const Register = () => {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('');
   const [mode, setMode] = useState(null);
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  const error = useSelector((store) => store.user.error)
+  const error = useSelector((store) => store.user.errors)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -25,8 +25,9 @@ const Register = () => {
   }, [accessToken, history])
 
   const onFormSubmit = (e) => {
-    e.prevent.default()
-
+    e.preventDefault();
+    console.log('Funkar?')
+    console.log(user.actions)
     const options = {
       method: 'POST',
       headers: {
@@ -37,7 +38,7 @@ const Register = () => {
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data.username)
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.username))
@@ -58,7 +59,7 @@ const Register = () => {
 
   return (
     <>
-      <h1>Registrer here</h1>
+      <h1>Register here</h1>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input
