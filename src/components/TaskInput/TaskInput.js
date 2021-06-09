@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import tasks from '../../reducers/tasks';
 import { API_URL } from '../../reusables/urls';
@@ -8,6 +8,8 @@ import './TaskInput.css'
 
 const TaskInput = () => {
   const [newTask, setNewTask] = useState('');
+
+  const username = useSelector((store) => store.user.username)
 
   const dispatch = useDispatch();
 
@@ -19,7 +21,10 @@ const TaskInput = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ taskItem: newTask })
+      body: JSON.stringify({
+        taskItem: newTask,
+        username
+      })
     };
 
     fetch(API_URL('tasks'), options)

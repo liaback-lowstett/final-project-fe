@@ -19,7 +19,7 @@ const user = createSlice({
     accessToken: null,
     errors: null
   },
-  reducer: {
+  reducers: {
     setUsername: (store, action) => {
       store.username = action.payload
     },

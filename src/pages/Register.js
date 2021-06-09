@@ -27,7 +27,7 @@ const Register = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     console.log('Funkar?')
-    console.log(user.actions)
+    // console.log(user.actions)
     const options = {
       method: 'POST',
       headers: {
@@ -38,8 +38,9 @@ const Register = () => {
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.username)
+        // console.log(data.username)
         if (data.success) {
+          console.log(data)
           batch(() => {
             dispatch(user.actions.setUsername(data.username))
             dispatch(user.actions.setAccessToken(data.accessToken))
