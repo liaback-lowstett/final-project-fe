@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import tasks from '../../reducers/tasks';
@@ -9,6 +9,7 @@ import './TaskInput.css'
 const TaskInput = () => {
   const [newTask, setNewTask] = useState('');
 
+  const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username)
 
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const TaskInput = () => {
     const options = {
       method: 'POST',
       headers: {
+        Authorization: accessToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

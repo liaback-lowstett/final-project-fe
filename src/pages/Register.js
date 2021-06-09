@@ -26,7 +26,6 @@ const Register = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log('Funkar?')
     // console.log(user.actions)
     const options = {
       method: 'POST',
@@ -44,12 +43,13 @@ const Register = () => {
           batch(() => {
             dispatch(user.actions.setUsername(data.username))
             dispatch(user.actions.setAccessToken(data.accessToken))
+            // add username
             dispatch(user.actions.setErrors(null))
 
-            // localStorage.setItem('user', JSON.stringify({
-            //   username: data.username,
-            //   accessToken: data.accessToken
-            // }))
+            localStorage.setItem('user', JSON.stringify({
+              username: data.username,
+              accessToken: data.accessToken
+            }))
           })
         } else {
           dispatch(user.actions.setErrors(data))
