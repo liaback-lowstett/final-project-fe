@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import tasks from '../../reducers/tasks';
-import { BASE_URL } from '../../reusables/urls';
+import { API_URL } from '../../reusables/urls';
 
 import './TaskInput.css'
 
@@ -22,7 +22,7 @@ const TaskInput = () => {
       body: JSON.stringify({ taskItem: newTask })
     };
 
-    fetch(BASE_URL, options)
+    fetch(API_URL('tasks'), options)
       .then((res) => res.json())
       .then((data) => dispatch(tasks.actions.addNewTask(data)));
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch, batch} from 'react-redux'
+import { useSelector, useDispatch, batch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom';
 
 import user from '../reducers/user'
@@ -12,7 +12,8 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState(null);
 
-  const accessToken = useSelector(store => store.user.accessToken)
+  const accessToken = useSelector((store) => store.user.accessToken)
+  const error = useSelector((store) => store.user.error)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -23,7 +24,7 @@ const Register = () => {
     }
   }, [accessToken, history])
 
-  const onFormSubmit = e => {
+  const onFormSubmit = (e) => {
     e.prevent.default()
 
     const options = {
@@ -36,18 +37,29 @@ const Register = () => {
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.username))
             dispatch(user.actions.setAccessToken(data.accessToken))
+            dispatch(user.actions.setErrors(null))
+
+            // localStorage.setItem('user', JSON.stringify({
+            //   username: data.username,
+            //   accessToken: data.accessToken
+            // }))
           })
+        } else {
+          dispatch(user.actions.setErrors(data))
         }
       })
+      .catch()
   }
+
   return (
     <>
       <h1>Registrer here</h1>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -56,10 +68,11 @@ const Register = () => {
           onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
+        {error && <p>{error.message}</p>}
         <button
           type="submit"
           onClick={() => setMode('register')}>
