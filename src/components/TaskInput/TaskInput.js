@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { batch, useDispatch, useSelector } from 'react-redux';
 
 import tasks from '../../reducers/tasks';
 import { API_URL } from '../../reusables/urls';
@@ -10,7 +10,8 @@ const TaskInput = () => {
   const [newTask, setNewTask] = useState('');
 
   const accessToken = useSelector((store) => store.user.accessToken);
-  const username = useSelector((store) => store.user.username)
+  const username = useSelector((store) => store.user.username);
+  const errors = useSelector((store) => store.tasks.errors)
 
   const dispatch = useDispatch();
 
@@ -31,8 +32,16 @@ const TaskInput = () => {
 
     fetch(API_URL('tasks'), options)
       .then((res) => res.json())
-      .then((data) => dispatch(tasks.actions.addNewTask(data.newTask)));
-
+      .then((data) => {
+        if (data.success) {
+          batch(() => {
+            dispatch(tasks.actions.addNewTask(data.newTask))
+            dispatch(tasks.actions.setErrors(null))
+          })
+        } else {
+          dispatch(tasks.actions.setErrors(data)) // errors i return skiten
+        }
+      });
     setNewTask('')
   };
 
@@ -49,6 +58,7 @@ const TaskInput = () => {
           Add task
         </button>
       </form>
+      {errors && <p>{errors.message}</p>}
     </div>
   );
 };

@@ -11,6 +11,7 @@ import './TaskList.css'
 const TaskList = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const taskItemList = useSelector((store) => store.tasks.taskItem)
+  const errors = useSelector((store) => store.tasks.errors)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -38,7 +39,7 @@ const TaskList = () => {
               dispatch(tasks.actions.setErrors(null));
             });
           } else {
-            dispatch(tasks.actions.setErrors(data));
+            dispatch(tasks.actions.setErrors(data)); // glöm inte lägga till error som useselctor
           }
         })
     }
@@ -51,6 +52,7 @@ const TaskList = () => {
           <p className="task-text">{item.taskItem}</p>
         </div>
       ))}
+      {errors && <p>{errors.message}</p>}
     </>
   )
 };
