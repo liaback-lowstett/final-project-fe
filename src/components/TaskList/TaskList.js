@@ -9,7 +9,6 @@ import { API_URL } from '../../reusables/urls'
 import './TaskList.css'
 
 const TaskList = () => {
-
   const accessToken = useSelector((store) => store.user.accessToken);
   const taskItemList = useSelector((store) => store.tasks.taskItem)
 

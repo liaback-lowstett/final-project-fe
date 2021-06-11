@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import tasks from '../../reducers/tasks';
@@ -31,7 +31,7 @@ const TaskInput = () => {
 
     fetch(API_URL('tasks'), options)
       .then((res) => res.json())
-      .then((data) => dispatch(tasks.actions.addNewTask(data)));
+      .then((data) => dispatch(tasks.actions.addNewTask(data.newTask)));
 
     setNewTask('')
   };
