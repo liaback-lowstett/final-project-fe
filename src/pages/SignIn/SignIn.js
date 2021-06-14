@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
-import user from '../reducers/user';
-import { API_URL } from '../reusables/urls';
+import user from '../../reducers/user';
+import { API_URL } from '../../reusables/urls';
+import "./SignIn.scss"
 
 const Signin = () => {
   const [username, setUsername] = useState('');
@@ -59,7 +60,7 @@ const Signin = () => {
   }
 
   return (
-    <>
+    <div className="signin">
       <h1>Sign in here</h1>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
@@ -84,7 +85,7 @@ const Signin = () => {
       <Link to="/register">
         <button>Register</button>
       </Link>
-    </>
+    </div>
   );
 };
 

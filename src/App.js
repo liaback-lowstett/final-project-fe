@@ -6,10 +6,10 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import tasks from 'reducers/tasks';
 import user from 'reducers/user';
 
-import Start from './pages/Start';
-import Register from './pages/Register';
-import SignIn from './pages/SignIn';
-import Tasks from './pages/Tasks';
+import Start from './pages/Start/Start';
+import Register from './pages/Register/Register';
+import SignIn from './pages/SignIn/SignIn';
+import Tasks from './pages/Tasks/Tasks';
 
 const reducer = combineReducers({
   tasks: tasks.reducer,
@@ -23,7 +23,7 @@ export const App = () => {
     <BrowserRouter>
       <Provider store={store}>
         <Switch>
-          <Route path="/start" component={Start} />
+          <Route exact path="/" component={Start} />
           <Route path="/register" component={Register} />
           <Route path="/signin" component={SignIn} />
           <Route path="/tasks" component={Tasks} />

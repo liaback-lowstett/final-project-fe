@@ -4,7 +4,7 @@ import { batch, useDispatch, useSelector } from 'react-redux';
 import tasks from '../../reducers/tasks';
 import { API_URL } from '../../reusables/urls';
 
-import './TaskInput.css'
+import './TaskInput.scss'
 
 const TaskInput = () => {
   const [newTask, setNewTask] = useState('');

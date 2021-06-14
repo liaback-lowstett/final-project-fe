@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import tasks from '../../reducers/tasks'
 import { API_URL } from '../../reusables/urls'
 
-import './TaskList.css'
+import './TaskList.scss'
 
 const TaskList = () => {
   const accessToken = useSelector((store) => store.user.accessToken);

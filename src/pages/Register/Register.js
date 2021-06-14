@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
-import user from '../reducers/user';
-import { API_URL } from '../reusables/urls';
+import './Register.scss'
+
+import user from '../../reducers/user';
+import { API_URL } from '../../reusables/urls';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -59,7 +61,7 @@ const Register = () => {
   }
 
   return (
-    <>
+    <div className="register">
       <h1>Register here</h1>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
@@ -82,9 +84,9 @@ const Register = () => {
         </button>
       </form>
       <Link to="/signin">
-        <button>Sign in</button>
+        <button>sign in</button>
       </Link>
-    </>
+    </div>
   );
 };
 

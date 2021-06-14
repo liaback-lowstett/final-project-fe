@@ -1,0 +1,38 @@
+.signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 25px;
+            border: none;
+            background-color: lightgray;
+            height: 35px;
+        }
+
+        button {
+            width: fit-content;
+            border: none;
+            padding: 5px 10px;
+        }
+    }
+    a {
+        button {
+            width: fit-content;
+            border: none;
+            padding: 5px 10px;
+            background: none;
+        }
+    }
+    
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './TaskHeading.css'
+import './TaskHeading.scss'
 
 const TaskHeading = () => {
   return (
