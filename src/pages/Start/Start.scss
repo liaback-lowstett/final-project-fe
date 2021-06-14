@@ -1,0 +1,18 @@
+.start{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .img-container{
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+        background-color: #6A74CC;
+
+        img{
+            width: 250px;
+        }
+
+    }
+}
