@@ -46,14 +46,14 @@ const TaskList = () => {
   }, [accessToken, dispatch])
 
   return (
-    <>
+    <div className="task-list">
       {taskItemList.map((item) => (
-        <div className="task-container" key={item._id}>
-          <p className="task-text">{item.taskItem}</p>
+        <div className="task" key={item._id}>
+          <p>{item.taskItem}</p>
         </div>
       ))}
       {errors && <p>{errors.message}</p>}
-    </>
+    </div>
   )
 };
 

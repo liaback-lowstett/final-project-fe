@@ -1,24 +1,36 @@
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 35px;
+@import "../../variables.scss";
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
 }
 
-.input-field {
-    margin: 10px 0;
-    border: none;
-    border-radius: 2px;
-    background: coral;
-    height: 35px;
-    width: 100%;
-}
+.task-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: solid $classic-purple;
+  margin: $page-container-margin;
 
-.input-button {
+  input {
+    padding-bottom: $spacing-xs;
     border: none;
-    border-radius: 2px;
-    background-color: coral;
-    color: #fff;
-    height: 35px;
-    width: 75px;
+    font-size: 17px;
+
+    @include placeholder {
+      color: gray;
+      font-weight: lighter;
+      padding-left: $spacing-xs;
+    }
+  }
+  button {
+    font-size: 21px;
+    border: none;
+    background: none;
+    color:$classic-purple;
+    padding: $spacing-xs $spacing-s;
+  }
 }

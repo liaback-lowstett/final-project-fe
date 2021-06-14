@@ -1,7 +1,15 @@
-.taks-container {
-    font-size: 17px;
-}
+@import "../../variables.scss";
 
-.task-text {
-    font-size: 17px;
+.task-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: $page-container-margin;
+
+    .task {
+
+        p {
+            margin: $spacing-xs;
+        }
+    }
 }

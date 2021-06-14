@@ -8,12 +8,12 @@ import Logout from '../../components/Logout/Logout'
 const Tasks = () => {
 
   return (
-    <>
+    <div>
+      <Logout />
       <TaskHeading />
       <TaskInput />
       <TaskList />
-      <Logout />
-    </>
+    </div>
   )
 }
 export default Tasks

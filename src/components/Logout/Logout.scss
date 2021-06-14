@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.logout {
+    display: flex;
+    justify-content: flex-end;
+    margin: $page-container-margin;
+    
+    button{
+        background: none;
+        border:none
+    }
+}

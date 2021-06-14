@@ -47,15 +47,14 @@ const TaskInput = () => {
 
   return (
     <div>
-      <form className="input-container" onSubmit={onFormSubmit}>
+      <form className="task-form" onSubmit={onFormSubmit}>
         <input
-          className="input-field"
           type="text"
           placeholder="Add task"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)} />
-        <button className="input-button" type="submit">
-          Add task
+        <button type="submit">
+          +
         </button>
       </form>
       {errors && <p>{errors.message}</p>}
