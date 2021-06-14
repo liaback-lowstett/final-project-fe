@@ -5,6 +5,7 @@ import { useSelector, useDispatch, batch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
 import './Register.scss'
+import illustration from "../../assets/illustration.png";
 
 import user from '../../reducers/user';
 import { API_URL } from '../../reusables/urls';
@@ -62,30 +63,36 @@ const Register = () => {
 
   return (
     <div className="register">
-      <h1>Register here</h1>
+      <h1>Sign up here</h1>
+      <div className="link-container">
+        <p> Already have an account? <Link  className="link" to="/signin"> Sign in</Link>
+        </p>
+      </div>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
+          placeholder="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
+          placeholder="+8 characters"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
         {error && <p>{error.message}</p>}
         <button
           type="submit"
           onClick={() => setMode('register')}>
-          Register
+          Sign up
         </button>
       </form>
-      <Link to="/signin">
-        <button>sign in</button>
-      </Link>
+      <div className="img-container">
+        <img src={illustration} alt="illustration" />
+      </div>
     </div>
   );
 };

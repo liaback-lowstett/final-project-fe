@@ -7,6 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import user from '../../reducers/user';
 import { API_URL } from '../../reusables/urls';
 import "./SignIn.scss"
+import illustration from "../../assets/illustration.png";
 
 const Signin = () => {
   const [username, setUsername] = useState('');
@@ -62,17 +63,23 @@ const Signin = () => {
   return (
     <div className="signin">
       <h1>Sign in here</h1>
+      <div className="link-container">
+        <p> Don't have an account? <Link  className="link" to="/register"> Sign up</Link>
+        </p>
+      </div>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
+          placeholder="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
+          placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
         {error && <p>{error.message}</p>}
@@ -82,9 +89,9 @@ const Signin = () => {
           Signin
         </button>
       </form>
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
+      <div className="img-container">
+        <img src={illustration} alt="illustration" />
+      </div>
     </div>
   );
 };

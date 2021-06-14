@@ -1,11 +1,45 @@
-* {
-  margin: 0;
-}
+@import "./variables.scss";
+
 body {
   width: 100vw;
+  margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $classic-black;
+    line-height: 2.5rem;
+    margin-top: 0;
+  }
+
+  a,
+  p {
+    color: $classic-black;
+    text-decoration: none;
+    line-height: 1.5rem;
+  }
+
+  .container {
+    margin: auto;
+    padding: $page-container-margin;
+    max-width: 600px;
+  }
+
+// @font-face {
+//   font-family: "Poppins";
+//   font-style: normal;
+//   font-weight: 700;
+//   src: local("Poppins"),
+//     url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+// }
 }
+
 
 
 
