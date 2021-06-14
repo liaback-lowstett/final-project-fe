@@ -32,11 +32,11 @@
       border: none;
       background-color: $light-grey;
       height: 40px;
+      padding-left: $spacing-xs;
 
       @include placeholder {
         color: gray;
         font-weight:lighter;
-        padding-left: $spacing-xs;
       }
       
     }
