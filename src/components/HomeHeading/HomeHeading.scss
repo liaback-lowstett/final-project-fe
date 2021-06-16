@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+
+ @mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+
+.home-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    margin-top: $spacing-m;
+    margin-bottom: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: $spacing-xs 0 0 0;
+
+    label {
+      margin-bottom: $spacing-xs;
+    }
+
+    input {
+      margin-bottom: $spacing-m;
+      border: none;
+      background-color: none;
+      height: 40px;
+      color: $classic-purple;
+      font-weight: bold;
+      font-size: 2em;
+        
+      @include placeholder {
+        color: $classic-purple;
+        font-weight:lighter;
+      }
+    }
+  }
+}

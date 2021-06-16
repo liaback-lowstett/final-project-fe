@@ -30,7 +30,6 @@ export const App = () => {
           <Route path="/register" component={Register} />
           <Route path="/signin" component={SignIn} />
           <Route path="/home" component={Home} />
-          <Route path="/tasks" component={Tasks} />
           <Route path="/list/:id" component={Tasks} />
         </Switch>
       </Provider>

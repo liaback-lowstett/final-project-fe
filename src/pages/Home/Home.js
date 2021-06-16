@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Logout from '../../components/Logout/Logout'
+import HomeHeading from '../../components/HomeHeading/HomeHeading'
 import List from '../../components/List/List'
 import CreateList from '../../components/CreateList/CreateList'
 
@@ -10,8 +11,7 @@ const Home = () => {
   return (
     <div className="home">
       <Logout />
-      <h1>Your lists
-      </h1>
+      <HomeHeading />
       <CreateList />
       <List />
     </div>

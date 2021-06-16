@@ -7,9 +7,9 @@ const tasks = createSlice({
     errors: null
   },
   reducers: {
-    // setTasks: (store, action) => {
-    //   store.taskItem = action.payload;
-    // },
+    setTasks: (store, action) => {
+      store.taskItem = action.payload;
+    },
     addNewTask: (store, action) => {
       store.taskItem = [...store.taskItem, action.payload]
     },

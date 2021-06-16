@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { batch, useDispatch, useSelector } from 'react-redux';
 
-import lists from '../../reducers/lists';
+import tasks from '../../reducers/tasks';
 import { API_URL } from '../../reusables/urls';
 
 import './TaskInput.scss'
@@ -11,7 +11,7 @@ const TaskInput = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  const errors = useSelector((store) => store.lists.errors)
+  const errors = useSelector((store) => store.tasks.errors)
 
   const dispatch = useDispatch();
 
@@ -19,13 +19,13 @@ const TaskInput = () => {
     e.preventDefault();
 
     const options = {
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         Authorization: accessToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        tasks: newTask, // taskItem?
+        taskItem: newTask,
         username
       })
     };
@@ -34,13 +34,12 @@ const TaskInput = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log('data succes', data.succes)
           batch(() => {
-            dispatch(lists.actions.addNewTask(data.newTask)) // something here
-            dispatch(lists.actions.setErrors(null))
+            dispatch(tasks.actions.addNewTask(data.newTask))
+            dispatch(tasks.actions.setErrors(null))
           })
         } else {
-          dispatch(lists.actions.setErrors(data)) // errors i return
+          dispatch(tasks.actions.setErrors(data)) // errors i return skiten
         }
       });
     setNewTask('')

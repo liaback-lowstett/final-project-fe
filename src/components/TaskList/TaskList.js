@@ -13,8 +13,6 @@ const TaskList = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const allLists = useSelector((store) => store.lists.list);
-  const currentList = allLists.find((list) => list._id === id);
-  // console.log('currentList', currentList);
   const errors = useSelector((store) => store.tasks.errors);
 
   const dispatch = useDispatch();
@@ -34,12 +32,13 @@ const TaskList = () => {
           Authorization: accessToken
         }
       };
-      fetch(API_URL('tasks'), options)
+      fetch(API_URL(`tasks/${id}`), options)
         .then((res) => res.json())
         .then((data) => {
+          console.log('data', data)
           if (data.success) {
             batch(() => {
-              dispatch(lists.actions.setTasks(data.allTasks));
+              dispatch(lists.actions.setTasks(data.tasks));
               dispatch(lists.actions.setErrors(null));
             });
           } else {
@@ -47,17 +46,15 @@ const TaskList = () => {
           }
         });
     }
-  }, [accessToken, dispatch]);
+  }, [accessToken, dispatch, id]);
 
   return (
     <div className="task-list">
-      {currentList?.tasks.map((task) => {
-        return task ? (
-          <div className="task" key={task._id}>
-            <p>{task.taskItem}</p>
-          </div>
-        ) : null;
-      })}
+      {allLists.map((task) => (
+        <div className="task" key={task._id}>
+          <p>{task.taskItem}</p>
+        </div>
+      ))}
       {errors && <p>{errors.message}</p>}
     </div>
   );
