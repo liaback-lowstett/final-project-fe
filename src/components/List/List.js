@@ -1,21 +1,17 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
 
-import './TaskList.scss';
+import './List.scss';
 
-const TaskList = () => {
-  const { id } = useParams();
-
+const List = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
-  const allLists = useSelector((store) => store.lists.list);
-  const currentList = allLists.find((list) => list._id === id);
-  // console.log('currentList', currentList);
-  const errors = useSelector((store) => store.tasks.errors);
+  const list = useSelector((store) => store.lists.list);
+  const errors = useSelector((store) => store.lists.errors);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -34,12 +30,12 @@ const TaskList = () => {
           Authorization: accessToken
         }
       };
-      fetch(API_URL('tasks'), options)
+      fetch(API_URL('lists'), options)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
             batch(() => {
-              dispatch(lists.actions.setTasks(data.allTasks));
+              dispatch(lists.actions.setLists(data.allLists));
               dispatch(lists.actions.setErrors(null));
             });
           } else {
@@ -50,17 +46,17 @@ const TaskList = () => {
   }, [accessToken, dispatch]);
 
   return (
-    <div className="task-list">
-      {currentList?.tasks.map((task) => {
-        return task ? (
-          <div className="task" key={task._id}>
-            <p>{task.taskItem}</p>
+    <div className="list">
+      {list.map((item) => (
+        <Link to={`/list/${item._id}`} key={item._id}>
+          <div className="list-content">
+            <p>{item.listName}</p>
           </div>
-        ) : null;
-      })}
+        </Link>
+      ))}
       {errors && <p>{errors.message}</p>}
     </div>
   );
 };
 
-export default TaskList;
+export default List;

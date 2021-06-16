@@ -1,7 +1,7 @@
-import React from "react";
-import { useDispatch, batch } from "react-redux";
+import React from 'react';
+import { useDispatch, batch } from 'react-redux';
 
-import user from "../../reducers/user";
+import user from '../../reducers/user';
 import './Logout.scss'
 
 const Logout = () => {
@@ -10,7 +10,7 @@ const Logout = () => {
   const onButtonClick = () => {
     batch(() => {
       // remove user from localStorage
-      localStorage.removeItem("user");
+      localStorage.removeItem('user');
       dispatch(user.actions.setUsername(null));
       dispatch(user.actions.setAccessToken(null));
     });

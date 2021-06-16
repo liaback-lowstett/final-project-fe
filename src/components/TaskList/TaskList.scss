@@ -1,15 +1,18 @@
 @import "../../variables.scss";
 
 .task-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: $page-container-margin;
+
+  .task {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: $page-container-margin;
+    flex-direction: row;
+    align-items: baseline;
 
-    .task {
-
-        p {
-            margin: $spacing-xs;
-        }
+    p {
+      margin: $spacing-xs;
     }
+  }
 }

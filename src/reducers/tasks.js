@@ -7,9 +7,9 @@ const tasks = createSlice({
     errors: null
   },
   reducers: {
-    setTasks: (store, action) => {
-      store.taskItem = action.payload;
-    },
+    // setTasks: (store, action) => {
+    //   store.taskItem = action.payload;
+    // },
     addNewTask: (store, action) => {
       store.taskItem = [...store.taskItem, action.payload]
     },
@@ -25,6 +25,19 @@ const tasks = createSlice({
         }
       })
       store.taskItem = updatedTask
+    },
+    toggleComplete: (store, action) => {
+      const checkedTask = store.taskItem.map((task) => {
+        if (task.id === action.payload) {
+          return {
+            ...task,
+            isComplete: !task.isComplete
+          };
+        } else {
+          return task;
+        }
+      });
+      store.tasks = checkedTask;
     },
     setErrors: (store, action) => {
       store.errors = action.payload

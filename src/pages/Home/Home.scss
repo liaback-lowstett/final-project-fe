@@ -1,0 +1,8 @@
+@import "../../variables.scss";
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: $page-container-margin;
+}

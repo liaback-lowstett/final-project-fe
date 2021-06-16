@@ -23,7 +23,7 @@ const Register = () => {
 
   useEffect(() => {
     if (accessToken) {
-      history.push('/tasks')
+      history.push('/home')
     }
   }, [accessToken, history])
 
@@ -40,13 +40,11 @@ const Register = () => {
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.username)
         if (data.success) {
           console.log(data)
           batch(() => {
             dispatch(user.actions.setUsername(data.username))
             dispatch(user.actions.setAccessToken(data.accessToken))
-            // add username
             dispatch(user.actions.setErrors(null))
 
             localStorage.setItem('user', JSON.stringify({
@@ -65,7 +63,7 @@ const Register = () => {
     <div className="register">
       <h1>Sign up here</h1>
       <div className="link-container">
-        <p> Already have an account? <Link  className="link" to="/signin"> Sign in</Link>
+        <p> Already have an account? <Link className="link" to="/signin"> Sign in</Link>
         </p>
       </div>
       <form onSubmit={onFormSubmit}>

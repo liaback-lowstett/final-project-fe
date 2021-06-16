@@ -6,8 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 
 import user from '../../reducers/user';
 import { API_URL } from '../../reusables/urls';
-import "./SignIn.scss"
-import illustration from "../../assets/illustration.png";
+import './SignIn.scss'
+import illustration from '../../assets/illustration.png';
 
 const Signin = () => {
   const [username, setUsername] = useState('');
@@ -22,7 +22,7 @@ const Signin = () => {
 
   useEffect(() => {
     if (accessToken) {
-      history.push('/tasks')
+      history.push('/home')
     }
   }, [accessToken, history])
 

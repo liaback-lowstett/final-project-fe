@@ -1,0 +1,8 @@
+@import "../../variables.scss";
+
+.top-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
