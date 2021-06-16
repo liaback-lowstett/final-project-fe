@@ -26,7 +26,7 @@ const CreateList = () => {
       },
       body: JSON.stringify({
         listName: newList,
-        username
+        collaborators: [username] // username
       })
     };
 

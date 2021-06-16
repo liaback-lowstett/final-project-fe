@@ -10,7 +10,6 @@ const TaskInput = () => {
   const [newTask, setNewTask] = useState('');
 
   const accessToken = useSelector((store) => store.user.accessToken);
-  const username = useSelector((store) => store.user.username);
   const errors = useSelector((store) => store.lists.errors)
 
   const dispatch = useDispatch();
@@ -25,8 +24,7 @@ const TaskInput = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        tasks: newTask, // taskItem?
-        username
+        tasks: [newTask] // taskItem, complete
       })
     };
 
@@ -34,9 +32,10 @@ const TaskInput = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log('data succes', data.succes)
+          console.log('data succes', data.success)
           batch(() => {
-            dispatch(lists.actions.addNewTask(data.newTask)) // something here
+            console.log('data.tasks', data.tasks)
+            dispatch(lists.actions.addNewTask(data.tasks.newTask)) // something here
             dispatch(lists.actions.setErrors(null))
           })
         } else {
