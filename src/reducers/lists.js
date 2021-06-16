@@ -14,6 +14,10 @@ const lists = createSlice({
     addNewList: (store, action) => {
       store.list = [...store.list, action.payload]
     },
+    removeList: (store, action) => {
+      const decreasedList = store.list.filter((item) => item._id !== action.payload)
+      store.list = decreasedList
+    },
     setTasks: (store, action) => {
       store.list = action.payload;
     },

@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
@@ -9,6 +9,7 @@ import { API_URL } from '../../reusables/urls';
 import './List.scss';
 
 const List = () => {
+  // const { _id } = useParams()
   const accessToken = useSelector((store) => store.user.accessToken);
   const list = useSelector((store) => store.lists.list);
   const errors = useSelector((store) => store.lists.errors);
@@ -45,14 +46,39 @@ const List = () => {
     }
   }, [accessToken, dispatch]);
 
+  // const onClickDelete = () => {
+  //   const options = {
+  //     method: 'DELETE',
+  //     headers: {
+  //       Authorization: accessToken,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }
+
+  //   fetch(`http://localhost:8085/lists/${_id}`, options)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.success) {
+  //         console.log(data)
+  //         batch(() => {
+  //           dispatch(lists.actions.removeList(data.deletedList._id))
+  //           dispatch(lists.actions.setErrors(null))
+  //         })
+  //       } else {
+  //         dispatch(lists.actions.setErrors(data))
+  //       }
+  //     })
+  // }
+
   return (
     <div className="list">
       {list.map((item) => (
-        <Link to={`/list/${item._id}`} key={item._id}>
-          <div className="list-content">
+        <div className="list-content" key={item._id}>
+          <Link to={`/list/${item._id}`}>
             <p>{item.listName}</p>
-          </div>
-        </Link>
+          </Link>
+          <button type="button">Delete</button>
+        </div>
       ))}
       {errors && <p>{errors.message}</p>}
     </div>
