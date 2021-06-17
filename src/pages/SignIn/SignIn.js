@@ -62,35 +62,39 @@ const Signin = () => {
 
   return (
     <div className="signin">
-      <h1>Sign in here</h1>
-      <div className="link-container">
-        <p> Don't have an account? <Link  className="link" to="/register"> Sign up</Link>
-        </p>
+      <div className="heading">
+        <h1>Sign in here</h1>
+        <div className="link-container">
+          <p> Don not have an account? <Link className="link" to="/register"> Sign up</Link>
+          </p>
+        </div>
       </div>
-      <form onSubmit={onFormSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} />
-        {error && <p>{error.message}</p>}
-        <button
-          type="submit"
-          onClick={() => setMode('signin')}>
-          Signin
-        </button>
-      </form>
-      <div className="img-container">
-        <img src={illustration} alt="illustration" />
+      <div className="content">
+        <form onSubmit={onFormSubmit}>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
+          {error && <p>{error.message}</p>}
+          <button
+            type="submit"
+            onClick={() => setMode('signin')}>
+            Signin
+          </button>
+        </form>
+        <div className="img-container">
+          <img src={illustration} alt="illustration" />
+        </div>
       </div>
     </div>
   );

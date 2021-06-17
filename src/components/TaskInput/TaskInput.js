@@ -32,9 +32,9 @@ const TaskInput = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log('data succes', data.success)
+          // console.log('data succes', data.success)
           batch(() => {
-            console.log('data.list', data.list)
+            // console.log('data.list', data.list)
             dispatch(lists.actions.addNewTask(data.list)) // something here
             dispatch(lists.actions.setErrors(null))
           })
