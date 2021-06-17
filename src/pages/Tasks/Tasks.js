@@ -6,13 +6,14 @@ import TaskInput from '../../components/TaskInput/TaskInput'
 import TaskList from '../../components/TaskList/TaskList'
 import Logout from '../../components/Logout/Logout'
 import Nav from '../../components/Nav/Nav'
+import Footer from '../../components/Footer/Footer'
 
 import './Tasks.scss'
 
 const Tasks = () => {
   // const { id } = useParams()
   return (
-    <div>
+    <div className="tasks">
       <div className="top-nav">
         <Nav />
         <Logout />
@@ -20,6 +21,7 @@ const Tasks = () => {
       <TaskHeading />
       <TaskInput />
       <TaskList />
+      <Footer />
     </div>
   )
 }

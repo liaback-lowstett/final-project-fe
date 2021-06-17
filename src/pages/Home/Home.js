@@ -4,6 +4,7 @@ import Logout from '../../components/Logout/Logout'
 import HomeHeading from '../../components/HomeHeading/HomeHeading'
 import List from '../../components/List/List'
 import CreateList from '../../components/CreateList/CreateList'
+import Footer from '../../components/Footer/Footer'
 
 import './Home.scss'
 
@@ -14,6 +15,7 @@ const Home = () => {
       <HomeHeading />
       <CreateList />
       <List />
+      <Footer />
     </div>
   )
 }

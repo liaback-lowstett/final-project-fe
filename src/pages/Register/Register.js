@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import './Register.scss'
 import illustration from "../../assets/illustration.png";
+import Footer from '../../components/Footer/Footer'
 
 import user from '../../reducers/user';
 import { API_URL } from '../../reusables/urls';
@@ -91,6 +92,7 @@ const Register = () => {
       <div className="img-container">
         <img src={illustration} alt="illustration" />
       </div>
+      <Footer />
     </div>
   );
 };

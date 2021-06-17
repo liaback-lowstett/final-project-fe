@@ -1,8 +1,13 @@
 @import "../../variables.scss";
 
-.top-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
+.tasks {
+    max-width: 600px;
+    margin: auto;
+
+    .top-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+    }
 }

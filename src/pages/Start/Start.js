@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Start.scss";
 import illustration from "../../assets/illustration.png";
+import Footer from '../../components/Footer/Footer'
 
 const Start = () => {
   return (
@@ -23,13 +24,14 @@ const Start = () => {
             <button>sign up</button>
           </Link>
           <p>
-            Already have an account?{" "}
+            Already have an account?
             <Link className="link" to="/signin">
               sign in
             </Link>
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
