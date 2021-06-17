@@ -10,7 +10,7 @@ const Start = () => {
       <div className="img-container">
         <img src={illustration} alt="illustration" />
       </div>
-      <div className="container">
+      <div className="content">
         <div className="text-container">
           <h1>Join suscipit arcu congue porttitor.</h1>
           <p>

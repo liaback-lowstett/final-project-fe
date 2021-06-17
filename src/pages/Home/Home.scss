@@ -6,3 +6,10 @@
     justify-content: center;
     margin: $page-container-margin;
 }
+
+@media screen and (min-width: $screen-m) {
+    .home {
+        margin: auto;
+        max-width: 600px;
+    }
+}
