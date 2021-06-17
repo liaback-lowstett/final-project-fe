@@ -10,6 +10,7 @@ const TaskInput = () => {
   const [newTask, setNewTask] = useState('');
 
   const accessToken = useSelector((store) => store.user.accessToken);
+  // const listId = useSelector((store) => store.user.listId)
   const errors = useSelector((store) => store.lists.errors)
 
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ const TaskInput = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        data: newTask // taskItem, complete
+        data: newTask
+        // _id: listId
       })
     };
 

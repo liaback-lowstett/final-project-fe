@@ -8,10 +8,13 @@ import Logout from '../../components/Logout/Logout'
 import Nav from '../../components/Nav/Nav'
 import Footer from '../../components/Footer/Footer'
 
+// import Placeholder from '../../components/Placeholder/Placeholder'
+
 import './Tasks.scss'
 
 const Tasks = () => {
-  // const { id } = useParams()
+  // const TaskLength = useSelector((store) => store.lists.list.length)
+
   return (
     <div className="tasks">
       <div className="top-nav">

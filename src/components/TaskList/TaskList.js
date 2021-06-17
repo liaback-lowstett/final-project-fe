@@ -35,7 +35,7 @@ const TaskList = () => {
       fetch(API_URL(`tasks/${id}`), options)
         .then((res) => res.json())
         .then((data) => {
-          console.log('data tasks', data)
+          // console.log('data tasks', data)
           if (data.success) {
             batch(() => {
               dispatch(lists.actions.setTasks(data.tasks));

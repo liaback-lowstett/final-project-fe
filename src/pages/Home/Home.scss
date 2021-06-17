@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     margin: $page-container-margin;
+    min-height: 100vh;
 }
 
 @media screen and (min-width: $screen-m) {
