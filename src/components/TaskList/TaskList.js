@@ -35,7 +35,7 @@ const TaskList = () => {
       fetch(API_URL(`tasks/${id}`), options)
         .then((res) => res.json())
         .then((data) => {
-          // console.log('data', data)
+          console.log('data tasks', data)
           if (data.success) {
             batch(() => {
               dispatch(lists.actions.setTasks(data.tasks));
@@ -52,7 +52,12 @@ const TaskList = () => {
     <div className="task-list">
       {allLists.map((task) => (
         <div className="task" key={task._id}>
-          <p>{task.taskItem}</p>
+          <div className="checkbox-container">
+            <input
+              className="checkbox"
+              type="checkbox" />
+            <p className="checkbox-text">{task.taskItem}</p>
+          </div>
         </div>
       ))}
       {errors && <p>{errors.message}</p>}

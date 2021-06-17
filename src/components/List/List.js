@@ -1,10 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
+
+import remove from '../../assets/remove.png';
+import edit from '../../assets/edit.png';
 
 import './List.scss';
 
@@ -77,7 +80,10 @@ const List = () => {
           <Link to={`/list/${item._id}`}>
             <p>{item.listName}</p>
           </Link>
-          <button type="button">Delete</button>
+          <button type="button">
+            <img src={edit} alt="edit" />
+            <img src={remove} alt="remove" />
+          </button>
         </div>
       ))}
       {errors && <p>{errors.message}</p>}

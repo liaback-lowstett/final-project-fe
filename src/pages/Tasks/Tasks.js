@@ -18,10 +18,14 @@ const Tasks = () => {
         <Nav />
         <Logout />
       </div>
-      <TaskHeading />
-      <TaskInput />
-      <TaskList />
-      <Footer />
+      <div className="content">
+        <TaskHeading />
+        <TaskInput />
+        <TaskList />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   )
 }

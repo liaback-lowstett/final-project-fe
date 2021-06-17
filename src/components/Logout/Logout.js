@@ -4,6 +4,8 @@ import { useDispatch, batch } from 'react-redux';
 import user from '../../reducers/user';
 import './Logout.scss'
 
+import signout from '../../assets/signout.png';
+
 const Logout = () => {
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ const Logout = () => {
   return (
     <div className="logout">
       <button type="button" onClick={onButtonClick}>
-        Sign out
+        <img src={signout} alt="sign out" />
       </button>
     </div>
   );

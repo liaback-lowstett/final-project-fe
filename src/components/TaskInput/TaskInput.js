@@ -24,7 +24,7 @@ const TaskInput = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        tasks: [newTask] // taskItem, complete
+        data: newTask // taskItem, complete
       })
     };
 

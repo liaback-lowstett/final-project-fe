@@ -11,8 +11,14 @@
     flex-direction: row;
     align-items: baseline;
 
-    p {
-      margin: $spacing-xs;
+    .checkbox-container {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      p {
+        margin: $spacing-s;
+      }
     }
   }
 }

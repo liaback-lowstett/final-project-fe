@@ -6,6 +6,8 @@ import { API_URL } from '../../reusables/urls';
 
 import './CreateList.scss'
 
+import add from '../../assets/add.png';
+
 const CreateList = () => {
   const [newList, setNewList] = useState('');
 
@@ -54,7 +56,7 @@ const CreateList = () => {
           value={newList}
           onChange={(e) => setNewList(e.target.value)} />
         <button type="submit">
-          +
+          <img src={add} alt="add" />
         </button>
       </form>
       {errors && <p>{errors.message}</p>}
