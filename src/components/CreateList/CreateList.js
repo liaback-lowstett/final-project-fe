@@ -36,6 +36,7 @@ const CreateList = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          console.log('create list', data)
           batch(() => {
             dispatch(lists.actions.addNewList(data.newList))
             dispatch(lists.actions.setErrors(null))

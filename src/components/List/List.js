@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
@@ -12,7 +12,6 @@ import edit from '../../assets/edit.png';
 import './List.scss';
 
 const List = () => {
-  // const { _id } = useParams()
   const accessToken = useSelector((store) => store.user.accessToken);
   const list = useSelector((store) => store.lists.list);
   const errors = useSelector((store) => store.lists.errors);
@@ -49,29 +48,29 @@ const List = () => {
     }
   }, [accessToken, dispatch]);
 
-  // const onClickDelete = () => {
-  //   const options = {
-  //     method: 'DELETE',
-  //     headers: {
-  //       Authorization: accessToken,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }
+  const onClickDelete = (listId) => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        Authorization: accessToken,
+        'Content-Type': 'application/json'
+      }
+    }
 
-  //   fetch(`http://localhost:8085/lists/${_id}`, options)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         console.log(data)
-  //         batch(() => {
-  //           dispatch(lists.actions.removeList(data.deletedList._id))
-  //           dispatch(lists.actions.setErrors(null))
-  //         })
-  //       } else {
-  //         dispatch(lists.actions.setErrors(data))
-  //       }
-  //     })
-  // }
+    fetch(`http://localhost:8086/lists/${listId}`, options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          console.log(data)
+          batch(() => {
+            dispatch(lists.actions.removeList(data.deletedList))
+            dispatch(lists.actions.setErrors(null))
+          })
+        } else {
+          dispatch(lists.actions.setErrors(data))
+        }
+      })
+  }
 
   return (
     <div className="list">
@@ -80,10 +79,16 @@ const List = () => {
           <Link to={`/list/${item._id}`}>
             <p>{item.listName}</p>
           </Link>
-          <button type="button">
-            <img src={edit} alt="edit" />
-            <img src={remove} alt="remove" />
-          </button>
+          <div className="button-container">
+            <button
+              type="button"
+              onClick={() => onClickDelete(item._id)}>
+              <img src={remove} alt="remove" />
+            </button>
+            <button type="button">
+              <img src={edit} alt="edit" />
+            </button>
+          </div>
         </div>
       ))}
       {errors && <p>{errors.message}</p>}

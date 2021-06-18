@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { batch, useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
@@ -7,10 +8,10 @@ import { API_URL } from '../../reusables/urls';
 import './TaskInput.scss'
 
 const TaskInput = () => {
+  const { id } = useParams();
   const [newTask, setNewTask] = useState('');
 
   const accessToken = useSelector((store) => store.user.accessToken);
-  // const listId = useSelector((store) => store.user.listId)
   const errors = useSelector((store) => store.lists.errors)
 
   const dispatch = useDispatch();
@@ -25,8 +26,11 @@ const TaskInput = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        data: newTask
-        // _id: listId
+        data: {
+          taskItem: newTask,
+          complete: false
+        },
+        listId: id
       })
     };
 
@@ -34,10 +38,10 @@ const TaskInput = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // console.log('data succes', data.success)
+          console.log('data succes', data)
           batch(() => {
             // console.log('data.list', data.list)
-            dispatch(lists.actions.addNewTask(data.list)) // something here
+            dispatch(lists.actions.setLists(data.newTask.tasks)) // something here
             dispatch(lists.actions.setErrors(null))
           })
         } else {

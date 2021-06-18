@@ -4,8 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const lists = createSlice({
   name: 'lists',
   initialState: {
-    list: [], // same name as in BE
-    // tasks: [] // should we add this one
+    list: [], // same name as in BE - change to listName
     errors: null
   },
   reducers: {
@@ -21,9 +20,6 @@ const lists = createSlice({
     },
     setTasks: (store, action) => {
       store.list = action.payload;
-    },
-    addNewTask: (store, action) => {
-      store.list = [...store.list, action.payload]
     },
     setErrors: (store, action) => {
       store.errors = action.payload
