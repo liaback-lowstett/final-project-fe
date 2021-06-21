@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
@@ -93,6 +93,7 @@ const List = () => {
 
   return (
     <div className="list">
+      {errors && <p>{errors.message}</p>}
       {list.map((item) => (
         <div className="list-content" key={item._id}>
           <Link to={`/list/${item._id}`}>
@@ -110,7 +111,6 @@ const List = () => {
           </div>
         </div>
       ))}
-      {errors && <p>{errors.message}</p>}
     </div>
   );
 };
