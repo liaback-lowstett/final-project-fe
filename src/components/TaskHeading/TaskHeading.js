@@ -5,7 +5,7 @@ import './TaskHeading.scss'
 const TaskHeading = () => {
   return (
     <div className="task-heading">
-      <h1>Name</h1>
+      <h1>List</h1>
     </div>
   )
 }

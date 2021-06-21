@@ -7,7 +7,7 @@ import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
 
 import remove from '../../assets/remove.png';
-import edit from '../../assets/edit.png';
+// import edit from '../../assets/edit.png';
 
 import './List.scss';
 
@@ -105,9 +105,9 @@ const List = () => {
               onClick={() => onClickDelete(item._id)}>
               <img src={remove} alt="remove" />
             </button>
-            <button type="button">
+            {/* <button type="button">
               <img src={edit} alt="edit" />
-            </button>
+            </button> */}
           </div>
         </div>
       ))}
