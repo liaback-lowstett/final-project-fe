@@ -1,11 +1,16 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import './TaskHeading.scss'
 
 const TaskHeading = () => {
+  const { id } = useParams();
+  const taskHeading = useSelector((store) => store.lists.list.find((item) => item._id === id).listName)
+  console.log('id', id)
   return (
     <div className="task-heading">
-      <h1>List</h1>
+      <h1>{taskHeading}</h1>
     </div>
   )
 }

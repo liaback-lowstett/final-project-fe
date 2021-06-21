@@ -12,7 +12,7 @@ const TaskList = () => {
   const { id } = useParams();
 
   const accessToken = useSelector((store) => store.user.accessToken);
-  const allLists = useSelector((store) => store.lists.list);
+  const allLists = useSelector((store) => store.lists.list); // tasks
   const errors = useSelector((store) => store.tasks.errors);
 
   const dispatch = useDispatch();

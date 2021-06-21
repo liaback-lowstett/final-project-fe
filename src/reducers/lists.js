@@ -5,6 +5,7 @@ const lists = createSlice({
   name: 'lists',
   initialState: {
     list: [], // same name as in BE - change to listName
+    tasks: [],
     errors: null
   },
   reducers: {
