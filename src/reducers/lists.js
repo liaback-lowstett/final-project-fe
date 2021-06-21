@@ -5,7 +5,7 @@ const lists = createSlice({
   name: 'lists',
   initialState: {
     list: [], // same name as in BE - change to listName
-    tasks: [],
+    tasks: [], // added this one
     errors: null
   },
   reducers: {
@@ -20,7 +20,7 @@ const lists = createSlice({
       store.list = decreasedList
     },
     setTasks: (store, action) => {
-      store.list = action.payload;
+      store.tasks = action.payload; // tasks
     },
     setErrors: (store, action) => {
       store.errors = action.payload
