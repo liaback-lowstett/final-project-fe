@@ -1,15 +1,15 @@
 /* eslint-disable no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = localStorage.getItem('user')
+// const initialState = localStorage.getItem('lists')
 //   ? {
-//     username: JSON.parse(localStorage.getItem('user')).username,
-//     accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
+//     list: JSON.parse(localStorage.getItem('lists')).username,
+//     tasks: JSON.parse(localStorage.getItem('lists')).accessToken,
 //     errors: null
 //   }
 //   : {
-//     username: null,
-//     accessToken: null,
+//     list: [],
+//     tasks: [],
 //     errors: null
 //   }
 
@@ -27,8 +27,12 @@ const lists = createSlice({
     addNewList: (store, action) => {
       store.list = [...store.list, action.payload]
     },
+    updateListWithCurrent: (store, action) => {
+      const decreasedList = store.list.filter((item) => item._id === action.payload);
+      store.list = [...decreasedList, action.payload]
+    },
     removeList: (store, action) => {
-      const decreasedList = store.list.filter((item) => item._id !== action.payload)
+      const decreasedList = store.list.filter((item) => item._id === action.payload)
       store.list = decreasedList
     },
     setTasks: (store, action) => {

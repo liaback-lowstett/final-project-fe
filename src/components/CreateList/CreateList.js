@@ -40,6 +40,10 @@ const CreateList = () => {
           batch(() => {
             dispatch(lists.actions.addNewList(data.newList))
             dispatch(lists.actions.setErrors(null))
+
+            // localStorage.setItem('lists', JSON.stringify({
+            //   list: data.newList // add localStorage
+            // }))
           })
         } else {
           dispatch(lists.actions.setErrors(data)) // errors i return skiten

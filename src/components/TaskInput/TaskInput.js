@@ -41,7 +41,8 @@ const TaskInput = () => {
           console.log('data succes', data)
           batch(() => {
             // console.log('data.list', data.list)
-            dispatch(lists.actions.setLists(data.newTask.tasks)) // something here
+            console.log('DATA;ADD', data);
+            dispatch(lists.actions.updateListWithCurrent(data.newTask)) // something here
             dispatch(lists.actions.setErrors(null))
           })
         } else {

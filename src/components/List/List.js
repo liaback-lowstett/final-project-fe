@@ -40,6 +40,7 @@ const List = () => {
             batch(() => {
               dispatch(lists.actions.setLists(data.allLists));
               dispatch(lists.actions.setErrors(null));
+
             });
           } else {
             dispatch(lists.actions.setErrors(data)); // glöm inte lägga till error som useselctor
@@ -57,19 +58,13 @@ const List = () => {
       }
     }
 
-    const options2 = {
-      method: 'GET',
-      headers: {
-        Authorization: accessToken
-      }
-    }
-
     fetch(`http://localhost:8086/lists/${listId}`, options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           console.log(data)
           batch(() => {
+            console.log('DELTe', data.deletedList);
             dispatch(lists.actions.removeList(data.deletedList))
             dispatch(lists.actions.setErrors(null))
           })
@@ -77,18 +72,6 @@ const List = () => {
           dispatch(lists.actions.setErrors(data))
         }
       })
-    return fetch(API_URL('lists'), options2)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          batch(() => {
-            dispatch(lists.actions.setLists(data.allLists));
-            dispatch(lists.actions.setErrors(null));
-          });
-        } else {
-          dispatch(lists.actions.setErrors(data)); // glöm inte lägga till error som useselctor
-        }
-      });
   }
 
   return (

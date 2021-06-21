@@ -8,14 +8,12 @@ import { API_URL } from '../../reusables/urls';
 
 import './TaskList.scss';
 
-const TaskList = () => {
+const TaskList = ({ tasks }) => {
   const { id } = useParams();
-
   const accessToken = useSelector((store) => store.user.accessToken);
-  const allLists = useSelector((store) => store.lists.tasks); // tasks
   const errors = useSelector((store) => store.tasks.errors);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // taksHeading
   const history = useHistory();
 
   useEffect(() => {
@@ -35,7 +33,6 @@ const TaskList = () => {
       fetch(API_URL(`tasks/${id}`), options)
         .then((res) => res.json())
         .then((data) => {
-          // console.log('data tasks', data)
           if (data.success) {
             batch(() => {
               dispatch(lists.actions.setTasks(data.tasks));
@@ -50,7 +47,7 @@ const TaskList = () => {
 
   return (
     <div className="task-list">
-      {allLists.map((task) => (
+      {tasks.map((task) => (
         <div className="task" key={task._id}>
           <div className="checkbox-container">
             <input
