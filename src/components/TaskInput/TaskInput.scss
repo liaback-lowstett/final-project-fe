@@ -19,6 +19,7 @@
     padding-bottom: $spacing-xs;
     border: none;
     font-size: 17px;
+    outline: none;
 
     @include placeholder {
       color: gray;
