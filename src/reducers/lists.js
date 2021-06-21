@@ -1,11 +1,23 @@
 /* eslint-disable no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 
+// const initialState = localStorage.getItem('user')
+//   ? {
+//     username: JSON.parse(localStorage.getItem('user')).username,
+//     accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
+//     errors: null
+//   }
+//   : {
+//     username: null,
+//     accessToken: null,
+//     errors: null
+//   }
+
 const lists = createSlice({
   name: 'lists',
   initialState: {
     list: [], // same name as in BE - change to listName
-    tasks: [], // added this one
+    tasks: [],
     errors: null
   },
   reducers: {
@@ -20,7 +32,7 @@ const lists = createSlice({
       store.list = decreasedList
     },
     setTasks: (store, action) => {
-      store.tasks = action.payload; // tasks
+      store.tasks = action.payload;
     },
     setErrors: (store, action) => {
       store.errors = action.payload

@@ -1,19 +1,19 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch, batch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch, batch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 
 import './Register.scss'
-import illustration from "../../assets/illustration.png";
+import illustration from '../../assets/illustration.png'
 import Footer from '../../components/Footer/Footer'
 
-import user from '../../reducers/user';
-import { API_URL } from '../../reusables/urls';
+import user from '../../reducers/user'
+import { API_URL } from '../../reusables/urls'
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [mode, setMode] = useState(null);
 
   const accessToken = useSelector((store) => store.user.accessToken)

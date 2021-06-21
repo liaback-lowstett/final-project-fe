@@ -1,6 +1,10 @@
 @import "../../variables.scss";
 
 .tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
     max-width: 600px;
     min-height: 100vh;
 
