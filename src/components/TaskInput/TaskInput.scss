@@ -19,12 +19,12 @@
     padding-bottom: $spacing-xs;
     border: none;
     font-size: 17px;
+    padding-left: $spacing-xs;
     outline: none;
 
     @include placeholder {
       color: gray;
       font-weight: lighter;
-      padding-left: $spacing-xs;
     }
   }
   button {
