@@ -16,11 +16,11 @@ const lists = createSlice({
       store.listTitle = [...store.listTitle, action.payload]
     },
     updateListWithCurrent: (store, action) => {
-      const decreasedList = store.listTitle.filter((item) => item._id === action.payload);
+      const decreasedList = store.listTitle.filter((item) => item._id === action.payload._id);
       store.listTitle = [...decreasedList, action.payload]
     },
     removeList: (store, action) => {
-      const decreasedList = store.listTitle.filter((item) => item._id === action.payload)
+      const decreasedList = store.listTitle.filter((item) => item._id !== action.payload)
       store.listTitle = decreasedList
     },
     setTasks: (store, action) => {

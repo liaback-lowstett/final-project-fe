@@ -78,7 +78,7 @@ const Register = () => {
         <input
           type="password"
           id="password"
-          placeholder="+8 characters"
+          placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
         {error && <p>{error.message}</p>}

@@ -55,6 +55,35 @@ const Tasks = () => {
     }
   }, [accessToken, dispatch]);
 
+  const listNameChange = (listId, listTitle) => {
+    if (accessToken) {
+      const options = {
+        method: 'PATCH',
+        headers: {
+          Authorization: accessToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          listId,
+          listTitle
+        })
+      };
+      fetch(API_URL('lists/update'), options)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            batch(() => {
+              console.log('updtast', data.updateList);
+              dispatch(lists.actions.updateListWithCurrent(data.updateList))
+              dispatch(lists.actions.setErrors(null));
+            });
+          } else {
+            dispatch(lists.actions.setErrors(data));
+          }
+        });
+    }
+  }
+
   return (
     <div className="tasks">
       <div className="top-nav">
@@ -63,7 +92,7 @@ const Tasks = () => {
       </div>
       {listById && (
         <div className="content">
-          <ListHeading heading={listById.listTitle} />
+          <ListHeading onListNameChange={listNameChange} heading={listById.listTitle} id={listById._id} />
           <CreateTask />
           <TaskList tasks={listById.tasks} />
         </div>)}

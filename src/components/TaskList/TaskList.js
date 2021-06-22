@@ -41,11 +41,68 @@ const TaskList = ({ tasks }) => {
               dispatch(lists.actions.setErrors(null));
             });
           } else {
-            dispatch(lists.actions.setErrors(data)); // glöm inte lägga till error som useselctor
+            dispatch(lists.actions.setErrors(data));
           }
         });
     }
   }, [accessToken, dispatch, id]);
+
+  const onTaskUpdate = (listId, taskId, complete) => {
+    if (accessToken) {
+      const options = {
+        method: 'PATCH',
+        headers: {
+          Authorization: accessToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          listId,
+          taskId,
+          complete
+        })
+      };
+      fetch(API_URL('tasks/update'), options)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            batch(() => {
+              dispatch(lists.actions.setErrors(null));
+            });
+          } else {
+            dispatch(lists.actions.setErrors(data));
+          }
+        });
+    }
+  }
+
+  const onTaskDelete = (listId, taskId) => {
+    if (accessToken) {
+      const options = {
+        method: 'PATCH',
+        headers: {
+          Authorization: accessToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          listId,
+          taskId
+        })
+      };
+      fetch(API_URL('tasks/delete'), options)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            batch(() => {
+              console.log('remife', data.removeTask);
+              dispatch(lists.actions.updateListWithCurrent(data.removeTask))
+              dispatch(lists.actions.setErrors(null));
+            });
+          } else {
+            dispatch(lists.actions.setErrors(data));
+          }
+        });
+    }
+  }
 
   return (
     <div className="task-list">
@@ -55,13 +112,19 @@ const TaskList = ({ tasks }) => {
             <input
               className="checkbox"
               type="checkbox"
-              /* checked={toggle}
-              onChange={() => setToggle(true)} */ />
+              defaultChecked={task.complete}
+              onChange={() => {
+                console.log('COMPLETE', task.complete);
+                onTaskUpdate(id, task._id, !task.complete)
+              }} />
             <p className="checkbox-text">{task.taskTitle}</p>
           </div>
           <button
-            type="button">
-            {/* onClick={() => onClickDelete(item._id)} */}
+            type="button"
+            onClick={() => {
+              console.log('COMPLETE');
+              onTaskDelete(id, task._id)
+            }}>
             <img src={remove} alt="remove" />
           </button>
         </div>

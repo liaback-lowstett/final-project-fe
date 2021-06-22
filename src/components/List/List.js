@@ -61,7 +61,7 @@ const List = () => {
       .then((data) => {
         if (data.success) {
           batch(() => {
-            dispatch(lists.actions.removeList(data.deletedList))
+            dispatch(lists.actions.removeList(data.deletedList._id))
             dispatch(lists.actions.setErrors(null))
           })
         } else {
