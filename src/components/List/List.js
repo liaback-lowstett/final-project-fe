@@ -7,7 +7,6 @@ import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
 
 import remove from '../../assets/remove.png';
-// import edit from '../../assets/edit.png';
 
 import './List.scss';
 
@@ -40,7 +39,6 @@ const List = () => {
             batch(() => {
               dispatch(lists.actions.setLists(data.allLists));
               dispatch(lists.actions.setErrors(null));
-
             });
           } else {
             dispatch(lists.actions.setErrors(data)); // glöm inte lägga till error som useselctor
@@ -62,9 +60,9 @@ const List = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data)
+          // console.log(data)
           batch(() => {
-            console.log('DELTe', data.deletedList);
+            // console.log('DELTe', data.deletedList);
             dispatch(lists.actions.removeList(data.deletedList))
             dispatch(lists.actions.setErrors(null))
           })
@@ -88,9 +86,6 @@ const List = () => {
               onClick={() => onClickDelete(item._id)}>
               <img src={remove} alt="remove" />
             </button>
-            {/* <button type="button">
-              <img src={edit} alt="edit" />
-            </button> */}
           </div>
         </div>
       ))}

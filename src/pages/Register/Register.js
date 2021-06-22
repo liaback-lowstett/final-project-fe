@@ -30,7 +30,6 @@ const Register = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    // console.log(user.actions)
     const options = {
       method: 'POST',
       headers: {

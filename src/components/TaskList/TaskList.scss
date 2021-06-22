@@ -9,7 +9,8 @@
   .task {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: unset;
+    justify-content: space-between;
 
     .checkbox-container {
       display: flex;
@@ -18,6 +19,16 @@
 
       p {
         margin: $spacing-s;
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+
+      img {
+        width: 16px;
+        padding: 10px;
       }
     }
   }

@@ -39,7 +39,6 @@ const Signin = () => {
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.username)
         if (data.success) {
           console.log(data)
           batch(() => {

@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import lists from 'reducers/lists';
-import tasks from 'reducers/tasks';
 import user from 'reducers/user';
 
 import Start from './pages/Start/Start';
@@ -15,7 +14,6 @@ import Tasks from './pages/Tasks/Tasks';
 
 const reducer = combineReducers({
   lists: lists.reducer,
-  tasks: tasks.reducer,
   user: user.reducer
 });
 

@@ -13,7 +13,7 @@ const CreateList = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  const errors = useSelector((store) => store.tasks.errors)
+  const errors = useSelector((store) => store.lists.errors)
 
   const dispatch = useDispatch();
 
@@ -40,10 +40,6 @@ const CreateList = () => {
           batch(() => {
             dispatch(lists.actions.addNewList(data.newList))
             dispatch(lists.actions.setErrors(null))
-
-            // localStorage.setItem('lists', JSON.stringify({
-            //   list: data.newList // add localStorage
-            // }))
           })
         } else {
           dispatch(lists.actions.setErrors(data)) // errors i return skiten

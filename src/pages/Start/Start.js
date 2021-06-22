@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react/button-has-type */
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import "./Start.scss";
-import illustration from "../../assets/illustration.png";
+import './Start.scss';
+import illustration from '../../assets/illustration.png';
 import Footer from '../../components/Footer/Footer'
 
 const Start = () => {
