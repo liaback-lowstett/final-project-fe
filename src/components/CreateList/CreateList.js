@@ -27,7 +27,7 @@ const CreateList = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        listName: newList,
+        listTitle: newList,
         collaborators: [username] // username
       })
     };

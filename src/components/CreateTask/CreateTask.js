@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import lists from '../../reducers/lists';
 import { API_URL } from '../../reusables/urls';
 
-import './TaskInput.scss'
+import './CreateTask.scss'
 
-const TaskInput = () => {
+const CreateTask = () => {
   const { id } = useParams();
   const [newTask, setNewTask] = useState('');
 
@@ -27,7 +27,7 @@ const TaskInput = () => {
       },
       body: JSON.stringify({
         data: {
-          taskItem: newTask,
+          taskTitle: newTask,
           complete: false
         },
         listId: id
@@ -38,7 +38,6 @@ const TaskInput = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log('data succes', data)
           batch(() => {
             dispatch(lists.actions.updateListWithCurrent(data.newTask))
             dispatch(lists.actions.setErrors(null))
@@ -67,4 +66,4 @@ const TaskInput = () => {
   );
 };
 
-export default TaskInput;
+export default CreateTask;

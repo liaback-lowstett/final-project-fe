@@ -1,10 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
-import './TaskHeading.scss';
+import './ListHeading.scss';
 
-const TaskHeading = ({ heading }) => {
-
+const ListHeading = ({ heading }) => {
   return (
     <div className="task-heading">
       <h1>{heading}</h1>
@@ -12,4 +11,4 @@ const TaskHeading = ({ heading }) => {
   );
 };
 
-export default TaskHeading;
+export default ListHeading;

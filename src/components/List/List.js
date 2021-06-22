@@ -12,7 +12,7 @@ import './List.scss';
 
 const List = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
-  const list = useSelector((store) => store.lists.list);
+  const listArray = useSelector((store) => store.lists.listTitle);
   const errors = useSelector((store) => store.lists.errors);
 
   const dispatch = useDispatch();
@@ -60,9 +60,7 @@ const List = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // console.log(data)
           batch(() => {
-            // console.log('DELTe', data.deletedList);
             dispatch(lists.actions.removeList(data.deletedList))
             dispatch(lists.actions.setErrors(null))
           })
@@ -75,10 +73,10 @@ const List = () => {
   return (
     <div className="list">
       {errors && <p>{errors.message}</p>}
-      {list.map((item) => (
+      {listArray.map((item) => (
         <div className="list-content" key={item._id}>
           <Link to={`/list/${item._id}`}>
-            <p>{item.listName}</p>
+            <p>{item.listTitle}</p>
           </Link>
           <div className="button-container">
             <button

@@ -13,7 +13,7 @@ import './TaskList.scss';
 const TaskList = ({ tasks }) => {
   const { id } = useParams();
   const accessToken = useSelector((store) => store.user.accessToken);
-  const errors = useSelector((store) => store.tasks.errors);
+  const errors = useSelector((store) => store.lists.errors);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -47,43 +47,6 @@ const TaskList = ({ tasks }) => {
     }
   }, [accessToken, dispatch, id]);
 
-  // REMOVE TASK
-
-  // const onClickDelete = () => {
-
-  //   const options = {
-  //     method: 'PATCH',
-  //     headers: {
-  //       Authorization: accessToken,
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       data: {
-  //         taskItem: removeTask,
-  //         complete: false
-  //       },
-  //       listId: id
-  //     })
-  //   };
-
-  //   fetch(API_URL('tasks'), options)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         console.log('data succes', data)
-  //         batch(() => {
-  //           // console.log('data.list', data.list)
-  //           // console.log('DATA;ADD', data);
-  //           dispatch(lists.actions.updateListWithCurrent(data.removeTask)) // something here
-  //           dispatch(lists.actions.setErrors(null))
-  //         })
-  //       } else {
-  //         dispatch(lists.actions.setErrors(data)) // errors i return
-  //       }
-  //     });
-  //   setRemoveTask('')
-  // };
-
   return (
     <div className="task-list">
       {tasks.map((task) => (
@@ -94,7 +57,7 @@ const TaskList = ({ tasks }) => {
               type="checkbox"
               /* checked={toggle}
               onChange={() => setToggle(true)} */ />
-            <p className="checkbox-text">{task.taskItem}</p>
+            <p className="checkbox-text">{task.taskTitle}</p>
           </div>
           <button
             type="button">

@@ -11,7 +11,6 @@ const Logout = () => {
 
   const onButtonClick = () => {
     batch(() => {
-      // remove user from localStorage
       localStorage.removeItem('user');
       dispatch(user.actions.setUsername(null));
       dispatch(user.actions.setAccessToken(null));

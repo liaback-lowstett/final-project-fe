@@ -4,24 +4,24 @@ import { createSlice } from '@reduxjs/toolkit';
 const lists = createSlice({
   name: 'lists',
   initialState: {
-    list: [], // same name as in BE - change to listName
+    listTitle: [], // list
     tasks: [],
     errors: null
   },
   reducers: {
     setLists: (store, action) => {
-      store.list = action.payload;
+      store.listTitle = action.payload;
     },
     addNewList: (store, action) => {
-      store.list = [...store.list, action.payload]
+      store.listTitle = [...store.listTitle, action.payload]
     },
     updateListWithCurrent: (store, action) => {
-      const decreasedList = store.list.filter((item) => item._id === action.payload);
-      store.list = [...decreasedList, action.payload]
+      const decreasedList = store.listTitle.filter((item) => item._id === action.payload);
+      store.listTitle = [...decreasedList, action.payload]
     },
     removeList: (store, action) => {
-      const decreasedList = store.list.filter((item) => item._id === action.payload)
-      store.list = decreasedList
+      const decreasedList = store.listTitle.filter((item) => item._id === action.payload)
+      store.listTitle = decreasedList
     },
     setTasks: (store, action) => {
       store.tasks = action.payload;
