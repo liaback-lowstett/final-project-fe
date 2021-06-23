@@ -16,7 +16,7 @@ const lists = createSlice({
       store.listTitle = [...store.listTitle, action.payload]
     },
     updateListWithCurrent: (store, action) => {
-      const decreasedList = store.listTitle.filter((item) => item._id === action.payload._id);
+      const decreasedList = store.listTitle.filter((item) => item._id !== action.payload._id);
       store.listTitle = [...decreasedList, action.payload]
     },
     removeList: (store, action) => {

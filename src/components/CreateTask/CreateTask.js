@@ -39,6 +39,7 @@ const CreateTask = () => {
       .then((data) => {
         if (data.success) {
           batch(() => {
+            console.log('newtask', data.newTask);
             dispatch(lists.actions.updateListWithCurrent(data.newTask))
             dispatch(lists.actions.setErrors(null))
           })
