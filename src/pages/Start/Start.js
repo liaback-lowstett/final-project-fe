@@ -25,10 +25,7 @@ const Start = () => {
             <button>sign up</button>
           </Link>
           <p>
-            Already have an account?
-            <Link className="link" to="/signin">
-              sign in
-            </Link>
+            Already have an account?<Link className="link" to="/signin"> sign in</Link>
           </p>
         </div>
       </div>

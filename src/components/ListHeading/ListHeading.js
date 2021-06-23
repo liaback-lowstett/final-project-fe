@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 
 import './ListHeading.scss';
+import edit from '../../assets/edit.png';
+import save from '../../assets/save.png';
 
 const ListHeading = ({ heading, onListNameChange, id }) => {
   const [enabled, setEnabled] = useState(false);
@@ -19,7 +21,10 @@ const ListHeading = ({ heading, onListNameChange, id }) => {
           onListNameChange(id, e.target.value)
         }} />
       <button type="button" onClick={toggleEnabled}>
-        {!enabled ? 'Edit' : 'Save'}
+        {!enabled
+          ? <img src={edit} alt="edit" />
+          : <img src={save} alt="save" />
+        }
       </button>
     </div>
   );

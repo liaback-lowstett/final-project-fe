@@ -64,7 +64,7 @@ const Signin = () => {
       <div className="heading">
         <h1>Sign in here</h1>
         <div className="link-container">
-          <p> Don not have an account? <Link className="link" to="/register"> Sign up</Link>
+          <p> Don't have an account? <Link className="link" to="/register"> Sign up</Link>
           </p>
         </div>
       </div>
