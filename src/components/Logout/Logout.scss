@@ -3,11 +3,16 @@
 .logout {
     display: flex;
     justify-content: flex-end;
-    margin: $spacing-m 0;
+    align-items: baseline;
 
     p {
-        margin: 0 8px 3px 0;
+        margin: 0 8px;
         color: $light-orange;
+    }
+
+    img {
+        height: 16px;
+        margin: 0 8px;
     }
     
     button{
@@ -16,6 +21,7 @@
 
         img {
             width: 16px;
+            margin: 0 8px;
         }
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import back from '../../assets/right_arrow.png';
+import back from '../../assets/left_arrow.png';
 
 import './Nav.scss'
 

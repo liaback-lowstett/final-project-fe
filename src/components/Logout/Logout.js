@@ -5,6 +5,7 @@ import user from '../../reducers/user';
 import './Logout.scss'
 
 import signout from '../../assets/signout.png';
+import share from '../../assets/share.png';
 
 const Logout = () => {
   const username = useSelector((store) => store.user.username)
@@ -20,6 +21,7 @@ const Logout = () => {
   return (
     <div className="logout">
       <p>{username}</p>
+      <img src={share} alt="share icon" />
       <button type="button" onClick={onButtonClick}>
         <img src={signout} alt="sign out" />
       </button>
