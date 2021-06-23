@@ -56,7 +56,6 @@ const ListDashboard = () => {
       }
     }
 
-    // http://localhost:8086/lists/${listId}
     fetch(API_URL(`lists/${listId}`), options)
       .then((res) => res.json())
       .then((data) => {

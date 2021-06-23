@@ -10,7 +10,7 @@
 
 @media screen and (min-width: $screen-m) {
     .home {
-        margin: auto;
+        margin: $spacing-m auto;
         max-width: 600px;
     }
-}
+  }

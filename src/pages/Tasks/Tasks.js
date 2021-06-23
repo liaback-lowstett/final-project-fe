@@ -73,7 +73,6 @@ const Tasks = () => {
         .then((data) => {
           if (data.success) {
             batch(() => {
-              console.log('updtast', data.updateList);
               dispatch(lists.actions.updateListWithCurrent(data.updateList))
               dispatch(lists.actions.setErrors(null));
             });
