@@ -13,7 +13,6 @@ const CreateList = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
-  const errors = useSelector((store) => store.lists.errors)
 
   const dispatch = useDispatch();
 
@@ -42,7 +41,7 @@ const CreateList = () => {
             dispatch(lists.actions.setErrors(null))
           })
         } else {
-          dispatch(lists.actions.setErrors(data)) // errors i return skiten
+          dispatch(lists.actions.setErrors(data))
         }
       });
     setNewList('')
@@ -60,7 +59,6 @@ const CreateList = () => {
           <img src={add} alt="add" />
         </button>
       </form>
-      {errors && <p>{errors.message}</p>}
     </div>
   );
 };
