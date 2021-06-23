@@ -52,7 +52,7 @@ const Signin = () => {
             }))
           })
         } else {
-          dispatch(user.actions.setErrors(data))
+          dispatch(user.actions.setErrors(data.message))
         }
       })
       .catch()

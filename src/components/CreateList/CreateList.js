@@ -41,7 +41,7 @@ const CreateList = () => {
             dispatch(lists.actions.setErrors(null))
           })
         } else {
-          dispatch(lists.actions.setErrors(data))
+          dispatch(lists.actions.setErrors(data.message))
         }
       });
     setNewList('')
