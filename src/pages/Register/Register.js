@@ -60,39 +60,45 @@ const Register = () => {
   }
 
   return (
-    <div className="register">
-      <h1>Sign up here</h1>
-      <div className="link-container">
-        <p> Already have an account? <Link className="link" to="/signin"> Sign in</Link>
-        </p>
-      </div>
-      <form onSubmit={onFormSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} />
-        {error && <p>{error.message}</p>}
-        <button
-          type="submit"
-          onClick={() => setMode('register')}>
-          Sign up
-        </button>
-      </form>
-      <div className="img-container">
-        <img src={designing} alt="illustration" />
+    <>
+      <div className="register">
+        <div className="heading">
+          <h1>Sign up here</h1>
+          <div className="link-container">
+            <p> Already have an account? <Link className="link" to="/signin"> Sign in</Link>
+            </p>
+          </div>
+        </div>
+        <div className="content">
+          <form onSubmit={onFormSubmit}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+            {error && <p>{error.message}</p>}
+            <button
+              type="submit"
+              onClick={() => setMode('register')}>
+              Sign up
+            </button>
+          </form>
+          <div className="img-container">
+            <img src={designing} alt="illustration" />
+          </div>
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

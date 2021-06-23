@@ -17,7 +17,7 @@
   h1 {
     margin-top: $spacing-l;
     margin-bottom: 0;
-  }
+  } 
   p {
     font-size: 12px;
 
@@ -71,7 +71,7 @@
     margin: $spacing-m;
 
     img {
-      object-fit: cover;
+      object-fit: contain;
       width: 250px;
     }
   }
