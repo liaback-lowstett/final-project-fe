@@ -1,5 +1,11 @@
 @import "../../variables.scss";
 
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
 @mixin placeholder {
     &::-webkit-input-placeholder {@content}
     &:-moz-placeholder           {@content}
@@ -11,15 +17,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
-  border-bottom: solid $classic-purple;
-  margin: $page-container-margin;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 0;
+  @include box-shadow(2px 2px 4px 1px rgba(167, 167, 167, 0.65));
 
   input {
-    padding-bottom: $spacing-xs;
-    border: none;
-    font-size: 17px;
-    padding-left: $spacing-xs;
+    border:none;
+    margin: 16px 0;
+    font-weight: bold;
+    font-size: 16px;
     outline: none;
 
     @include placeholder {

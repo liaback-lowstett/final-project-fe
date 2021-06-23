@@ -9,7 +9,7 @@ import { API_URL } from '../../reusables/urls';
 
 import ListHeading from '../../components/ListHeading/ListHeading'
 import CreateTask from '../../components/CreateTask/CreateTask'
-import TaskList from '../../components/TaskList/TaskList'
+import TaskDashboard from '../../components/TaskDashboard/TaskDashboard'
 import Logout from '../../components/Logout/Logout'
 import Nav from '../../components/Nav/Nav'
 import Footer from '../../components/Footer/Footer'
@@ -92,9 +92,12 @@ const Tasks = () => {
       </div>
       {listById && (
         <div className="content">
-          <ListHeading onListNameChange={listNameChange} heading={listById.listTitle} id={listById._id} />
+          <ListHeading
+            onListNameChange={listNameChange}
+            heading={listById.listTitle}
+            id={listById._id} />
           <CreateTask />
-          <TaskList tasks={listById.tasks} />
+          <TaskDashboard tasks={listById.tasks} />
         </div>)}
       <div className="footer">
         <Footer />

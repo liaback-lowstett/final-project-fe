@@ -4,8 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: auto;
-    max-width: 600px;
+    margin: $page-container-margin;
     min-height: 100vh;
 
     .top-nav {
@@ -15,3 +14,10 @@
         justify-content: space-between;
     }
 }
+
+@media screen and (min-width: $screen-m) {
+    .tasks {
+        margin: auto;
+        max-width: 600px;
+    }
+  }

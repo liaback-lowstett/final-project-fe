@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const lists = createSlice({
   name: 'lists',
   initialState: {
-    listTitle: [], // list
+    listTitle: [],
     tasks: [],
     errors: null
   },
@@ -26,10 +26,6 @@ const lists = createSlice({
     setTasks: (store, action) => {
       store.tasks = action.payload;
     },
-    // removeTask: (store, action) => {
-    //   const decreasedList = store.task.filter((item) => item._id === action.payload)
-    //   store.task = decreasedList
-    // },
     setErrors: (store, action) => {
       store.errors = action.payload
     }

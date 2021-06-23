@@ -1,24 +1,29 @@
 @import "../../variables.scss";
 
-.task-list {
+.task-dashboard {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: $page-container-margin;
+  padding: $spacing-m $spacing-s;
 
   .task {
     display: flex;
     flex-direction: row;
-    align-items: unset;
+    align-items: baseline;
     justify-content: space-between;
+    margin: $spacing-s 0;
 
     .checkbox-container {
       display: flex;
       flex-direction: row;
       align-items: baseline;
 
+      .checkbox {
+        margin: 0;
+      }
+
       p {
-        margin: $spacing-s;
+        margin: 0 $spacing-s;
       }
     }
 
@@ -27,8 +32,8 @@
       border: none;
 
       img {
-        width: 16px;
-        padding: 10px;
+        width: 12px;
+        padding: 0 10px;
       }
     }
   }

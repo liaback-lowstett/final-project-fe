@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, batch } from 'react-redux';
+import { useSelector, useDispatch, batch } from 'react-redux';
 
 import user from '../../reducers/user';
 import './Logout.scss'
@@ -7,6 +7,7 @@ import './Logout.scss'
 import signout from '../../assets/signout.png';
 
 const Logout = () => {
+  const username = useSelector((store) => store.user.username)
   const dispatch = useDispatch();
 
   const onButtonClick = () => {
@@ -18,6 +19,7 @@ const Logout = () => {
   };
   return (
     <div className="logout">
+      <p>{username}</p>
       <button type="button" onClick={onButtonClick}>
         <img src={signout} alt="sign out" />
       </button>

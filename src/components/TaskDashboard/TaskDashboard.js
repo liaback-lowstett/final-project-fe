@@ -8,9 +8,9 @@ import { API_URL } from '../../reusables/urls';
 
 import remove from '../../assets/remove.png';
 
-import './TaskList.scss';
+import './TaskDashboard.scss';
 
-const TaskList = ({ tasks }) => {
+const TaskDashboard = ({ tasks }) => {
   const { id } = useParams();
   const accessToken = useSelector((store) => store.user.accessToken);
   const errors = useSelector((store) => store.lists.errors);
@@ -93,7 +93,6 @@ const TaskList = ({ tasks }) => {
         .then((data) => {
           if (data.success) {
             batch(() => {
-              console.log('remife', data.removeTask);
               dispatch(lists.actions.updateListWithCurrent(data.removeTask))
               dispatch(lists.actions.setErrors(null));
             });
@@ -105,7 +104,7 @@ const TaskList = ({ tasks }) => {
   }
 
   return (
-    <div className="task-list">
+    <div className="task-dashboard">
       {tasks.map((task) => (
         <div className="task" key={task._id}>
           <div className="checkbox-container">
@@ -114,7 +113,6 @@ const TaskList = ({ tasks }) => {
               type="checkbox"
               defaultChecked={task.complete}
               onChange={() => {
-                console.log('COMPLETE', task.complete);
                 onTaskUpdate(id, task._id, !task.complete)
               }} />
             <p className="checkbox-text">{task.taskTitle}</p>
@@ -134,4 +132,4 @@ const TaskList = ({ tasks }) => {
   );
 };
 
-export default TaskList;
+export default TaskDashboard;

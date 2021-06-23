@@ -2,7 +2,7 @@ import React from 'react';
 
 import Logout from '../../components/Logout/Logout'
 import HomeHeading from '../../components/HomeHeading/HomeHeading'
-import List from '../../components/List/List'
+import ListDashboard from '../../components/ListDashboard/ListDashboard'
 import CreateList from '../../components/CreateList/CreateList'
 import Footer from '../../components/Footer/Footer'
 
@@ -14,7 +14,7 @@ const Home = () => {
       <Logout />
       <HomeHeading />
       <CreateList />
-      <List />
+      <ListDashboard />
       <Footer />
     </div>
   )

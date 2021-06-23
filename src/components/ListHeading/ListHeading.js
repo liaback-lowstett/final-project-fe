@@ -11,7 +11,7 @@ const ListHeading = ({ heading, onListNameChange, id }) => {
     setEnabled(!enabled)
   }
   return (
-    <div className="task-heading">
+    <div className="list-heading">
       <input
         disabled={!enabled}
         type="input"

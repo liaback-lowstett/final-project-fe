@@ -8,9 +8,9 @@ import { API_URL } from '../../reusables/urls';
 
 import remove from '../../assets/remove.png';
 
-import './List.scss';
+import './ListDashboard.scss';
 
-const List = () => {
+const ListDashboard = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const listArray = useSelector((store) => store.lists.listTitle);
   const errors = useSelector((store) => store.lists.errors);
@@ -91,4 +91,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ListDashboard;
