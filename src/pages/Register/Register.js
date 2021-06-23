@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 import './Register.scss'
 import designing from '../../assets/designing_2.png'
-import Footer from '../../components/Footer/Footer'
+// import Footer from '../../components/Footer/Footer'
 
 import user from '../../reducers/user'
 import { API_URL } from '../../reusables/urls'
@@ -97,7 +97,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

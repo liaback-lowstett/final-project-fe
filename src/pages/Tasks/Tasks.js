@@ -12,7 +12,7 @@ import CreateTask from '../../components/CreateTask/CreateTask'
 import TaskDashboard from '../../components/TaskDashboard/TaskDashboard'
 import Logout from '../../components/Logout/Logout'
 import Nav from '../../components/Nav/Nav'
-import Footer from '../../components/Footer/Footer'
+// import Footer from '../../components/Footer/Footer'
 
 import './Tasks.scss'
 
@@ -99,7 +99,7 @@ const Tasks = () => {
           <TaskDashboard tasks={listById.tasks} />
         </div>)}
       <div className="footer">
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   )

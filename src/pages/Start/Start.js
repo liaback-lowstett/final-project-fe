@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './Start.scss';
 import managing from '../../assets/managing.png';
-import Footer from '../../components/Footer/Footer'
+// import Footer from '../../components/Footer/Footer'
 
 const Start = () => {
   return (
@@ -29,7 +29,7 @@ const Start = () => {
           </p>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

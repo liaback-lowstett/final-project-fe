@@ -8,7 +8,7 @@ import user from '../../reducers/user';
 import { API_URL } from '../../reusables/urls';
 import './SignIn.scss'
 import illustration from '../../assets/illustration.png';
-import Footer from '../../components/Footer/Footer'
+// import Footer from '../../components/Footer/Footer'
 
 const Signin = () => {
   const [username, setUsername] = useState('');
@@ -94,7 +94,7 @@ const Signin = () => {
           <img src={illustration} alt="illustration" />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
