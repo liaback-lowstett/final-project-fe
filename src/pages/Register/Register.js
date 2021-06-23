@@ -5,7 +5,7 @@ import { useSelector, useDispatch, batch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import './Register.scss'
-import illustration from '../../assets/illustration.png'
+import designing from '../../assets/designing_2.png'
 import Footer from '../../components/Footer/Footer'
 
 import user from '../../reducers/user'
@@ -89,7 +89,7 @@ const Register = () => {
         </button>
       </form>
       <div className="img-container">
-        <img src={illustration} alt="illustration" />
+        <img src={designing} alt="illustration" />
       </div>
       <Footer />
     </div>

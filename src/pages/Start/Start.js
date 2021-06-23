@@ -3,14 +3,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Start.scss';
-import illustration from '../../assets/illustration.png';
+import managing from '../../assets/managing.png';
 import Footer from '../../components/Footer/Footer'
 
 const Start = () => {
   return (
     <div className="start">
       <div className="img-container">
-        <img src={illustration} alt="illustration" />
+        <img src={managing} alt="illustration" />
       </div>
       <div className="content">
         <div className="text-container">
