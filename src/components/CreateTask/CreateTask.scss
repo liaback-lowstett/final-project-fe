@@ -30,7 +30,7 @@
     outline: none;
 
     @include placeholder {
-      color: gray;
+      color: $classic-purple;
       font-weight: lighter;
     }
   }
