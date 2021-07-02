@@ -1,4 +1,4 @@
-# Todo App
+## Todo App
 
 By: Felicia Liabäck & Anna Lindgren
 
@@ -6,29 +6,29 @@ We have developed a web-application to help movers (but also other target groups
 
 ## Technologies
 
-# Backend:
+### Backend:
 - Node
 - Express
 - MongoDB
 - Mongoose
 
-# Frontend:
+### Frontend:
 - React
 - Redux
 - React Router
 - Sass
 
-# Design:
+### Design:
 -Figma
 
 ## Goals
 
-# MVP:
+### MVP:
 - Task list
 - Single task (add/edit/delete)
 - Profiles
 
-# Stretch goals - Continue to work on:
+### Stretch goals - Continue to work on:
 - Connection between profiles and tasks
 - PWA
 - Dark/light mode
@@ -36,9 +36,9 @@ We have developed a web-application to help movers (but also other target groups
 
 ## Live Link:
 
-# Backend:
+### Backend:
 https://todo-collab-app.herokuapp.com/
 
-# Frontend:
+### Frontend:
 https://todo-collab-app.netlify.app/
 
